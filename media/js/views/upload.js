@@ -73,11 +73,11 @@ Dropzone && (Dropzone.autoDiscover = false);
                 return file.status !== 'success';
             });
             if (remaining) {
-                swal('Woops!', 'There were some issues uploading your files.', 'warning');
+                swal('Woops!', 'Houveram alguns problemas fazendo o upload de seus arquivos.', 'warning');
                 return;
             }
             this.hide();
-            swal('Success', 'Files uploaded!', 'success');
+            swal('Sucesso', 'Upload de arquivos feito com sucesso!', 'success');
         },
         sending: function(file, xhr, formData) {
             formData.append('room', this.$('select[name="room"]').val());
@@ -86,7 +86,7 @@ Dropzone && (Dropzone.autoDiscover = false);
         submit: function(e) {
             e.preventDefault();
             if (!this.$('select[name="room"]').val()) {
-                swal('Woops!', 'Please specify a room.', 'warning');
+                swal('Woops!', 'Por favor especifique uma sala.', 'warning');
                 return;
             }
             this.dropzone.processQueue();

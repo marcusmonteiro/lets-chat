@@ -83,7 +83,7 @@ RoomManager.prototype.update = function(roomId, options, cb) {
         }
 
         if (!room) {
-            return cb('Room does not exist.');
+            return cb('Sala não existente.');
         }
 
         if(room.private && !room.owner.equals(options.user.id)) {
@@ -131,7 +131,7 @@ RoomManager.prototype.archive = function(roomId, cb) {
         }
 
         if (!room) {
-            return cb('Room does not exist.');
+            return cb('Sala não existente.');
         }
 
         room.archived = true;

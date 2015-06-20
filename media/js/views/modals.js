@@ -60,24 +60,24 @@
 
     window.LCB.ProfileModalView = window.LCB.ModalView.extend({
         success: function() {
-            swal('Profile Updated!', 'Your profile has been updated.',
+            swal('Perfil Atualizado!', 'Seu perfil foi atualizado.',
                  'success');
             this.$el.modal('hide');
         },
         error: function() {
-            swal('Woops!', 'Your profile was not updated.', 'error');
+            swal('Woops!', 'Seu perfil não foi atualizado.', 'error');
         }
     });
 
     window.LCB.AccountModalView = window.LCB.ModalView.extend({
         success: function() {
-            swal('Account Updated!', 'Your account has been updated.', 'success');
+            swal('Conta Atualizada!', 'Sua conta foi atualizada.', 'success');
             this.$el.modal('hide');
             this.$('[type="password"]').val('');
         },
         error: function(req) {
             var message = req.responseJSON && req.responseJSON.reason ||
-                          'Your account was not updated.';
+                          'Sua conta não foi atualizada.';
 
             swal('Woops!', message, 'error');
         },
@@ -140,25 +140,25 @@
             var that = this;
             $.post('./account/token/revoke', function(data) {
                 that.refresh();
-                swal('Success', 'Authentication token revoked!', 'success');
+                swal('Sucesso', 'Sua token de autenticação foi revogada!', 'success');
             });
         },
         generateToken: function() {
             swal({
-                title: 'Are you sure?',
-                text: 'This will overwrite any existing authentication token you may have.',   type: 'warning',
+                title: 'Tem certeza?',
+                text: 'Isto irá sobrescrever qualquer token de autenticação existente que você possa ter.',   type: 'warning',
                 showCancelButton: true,
-                confirmButtonText: 'Yes',
+                confirmButtonText: 'Sim',
                 closeOnConfirm: true },
                 _.bind(this.getToken, this)
             );
         },
         revokeToken: function() {
             swal({
-                title: 'Are you sure?',
-                text: 'This will revoke access from any process using your current authentication token.',   type: 'warning',
+                title: 'Tem certeza?',
+                text: 'Isto irá revogar o acesso à qualquer processo usando sua token de autenticação atual.',   type: 'warning',
                 showCancelButton: true,
-                confirmButtonText: 'Yes',
+                confirmButtonText: 'Sim',
                 closeOnConfirm: false },
                 _.bind(this.removeToken, this)
             );

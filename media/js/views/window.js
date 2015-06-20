@@ -37,7 +37,7 @@
 
             this.rooms.current.on('change:id', function(current, id) {
                 var room = this.rooms.get(id),
-                    title = room ? room.get('name') : 'Rooms';
+                    title = room ? room.get('name') : 'Salas';
                 this.updateTitle(title);
             }, this);
 
@@ -112,7 +112,7 @@
         updateTitle: function(name) {
             if (!name) {
                 var room = this.rooms.get(this.rooms.current.get('id'));
-                name = (room && room.get('name')) || 'Rooms';
+                name = (room && room.get('name')) || 'Salas';
             }
             if (name) {
                 this.title = $('<pre />').text(name).html() +

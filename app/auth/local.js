@@ -20,14 +20,14 @@ Local.prototype.setup = function() {
         User.authenticate(identifier, password, function(err, user) {
             if (err) {
                 return done(null, false, {
-                    message: 'Some fields did not validate.'
+                    message: 'Alguns campos não validaram.'
                 });
             }
             if (user) {
                 return done(null, user);
             } else {
                 return done(null, null, {
-                    message: 'Incorrect login credentials.'
+                    message: 'Credenciais de login incorretas.'
                 });
             }
         });

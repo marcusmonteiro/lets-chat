@@ -128,7 +128,7 @@ function wrapAuthCallback(username, cb) {
                 attempt.lockedUntil = Date.now() + lock;
                 return cb(err, user, {
                     locked: true,
-                    message: 'Account is locked.'
+                    message: 'Conta está trancada.'
                 });
             }
 
@@ -187,7 +187,7 @@ function authenticate() {
         if (locked) {
             return cb(null, null, {
                 locked: true,
-                message: 'Account is locked.'
+                message: 'Conta está trancada.'
             });
         }
 

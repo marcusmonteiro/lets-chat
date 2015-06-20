@@ -22,7 +22,7 @@ $.validator.setDefaults({
 
 $.validator.addMethod('alphanum', function(value, element) {
 	return this.optional(element) || /^[a-z0-9]+$/i.test(value);
-}, 'Only letters and numbers are allowed');
+}, 'Apenas letras e números são permitidos');
 
 $.fn.updateTimeStamp = function() {
     var $this = $(this);

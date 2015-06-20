@@ -240,7 +240,7 @@
             });
         },
         goodbye: function() {
-            swal('Archived!', '"' + this.model.get('name') + '" has been archived.', 'warning');
+            swal('Arquivada!', '"' + this.model.get('name') + '" foi arquivada.', 'warning');
         },
         updateMeta: function() {
             this.$('.lcb-room-heading .name').text(this.model.get('name'));
@@ -324,11 +324,11 @@
         archiveRoom: function(e) {
             var that = this;
             swal({
-                title: 'Do you really want to archive "' +
+                title: 'Você realmente quer arquivar "' +
                        this.model.get('name') + '"?',
-                text: "You will not be able to open it!",
+                text: "Você não poderá reabri-la!",
                 type: "error",
-                confirmButtonText: "Yes, I'm sure",
+                confirmButtonText: "Sim, tenho certeza",
                 allowOutsideClick: true,
                 confirmButtonColor: "#DD6B55",
                 showCancelButton: true,

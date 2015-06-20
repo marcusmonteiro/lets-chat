@@ -94,7 +94,7 @@ module.exports = function() {
                 if (err) {
                     return res.json({
                         status: 'error',
-                        message: 'Unable to update your profile.',
+                        message: 'Não pudemos atualizar seu perfil.',
                         errors: err
                     });
                 }
@@ -110,8 +110,8 @@ module.exports = function() {
             if (req.user.usingToken) {
                 return res.status(403).json({
                     status: 'error',
-                    message: 'Cannot change account settings ' +
-                             'when using token authentication.'
+                    message: 'Não é possível mudar as configurações da conta ' +
+                             'quando usando autenticação por token.'
                 });
             }
 
@@ -131,7 +131,7 @@ module.exports = function() {
                 if (err) {
                     return res.status(400).json({
                         status: 'error',
-                        message: 'There were problems authenticating you.',
+                        message: 'Houveram problemas autenticando você.',
                         errors: err
                     });
                 }
@@ -139,7 +139,7 @@ module.exports = function() {
                 if (!user) {
                     return res.status(401).json({
                         status: 'error',
-                        message: 'Incorrect login credentials.'
+                        message: 'Credenciais de login incorretas.'
                     });
                 }
 
@@ -147,7 +147,7 @@ module.exports = function() {
                     if (err || !user) {
                         return res.status(400).json({
                             status: 'error',
-                            message: 'Unable to update your account.',
+                            message: 'Não pudemos atualizar sua conta.',
                             reason: reason,
                             errors: err
                         });
@@ -160,8 +160,8 @@ module.exports = function() {
             if (req.user.usingToken) {
                 return res.status(403).json({
                     status: 'error',
-                    message: 'Cannot generate a new token ' +
-                             'when using token authentication.'
+                    message: 'Não podemos gerar uma nova token ' +
+                             'quando usando autenticação por token.'
                 });
             }
 
@@ -169,14 +169,14 @@ module.exports = function() {
                 if (err) {
                     return res.json({
                         status: 'error',
-                        message: 'Unable to generate a token.',
+                        message: 'Não pudemos gerar uma token.',
                         errors: err
                     });
                 }
 
                 res.json({
                     status: 'success',
-                    message: 'Token generated.',
+                    message: 'Token gerada.',
                     token: token
                 });
             });
@@ -185,8 +185,8 @@ module.exports = function() {
             if (req.user.usingToken) {
                 return res.status(403).json({
                     status: 'error',
-                    message: 'Cannot revoke token ' +
-                             'when using token authentication.'
+                    message: 'Não é possível revogar a token ' +
+                             'quando usando autenticação por token.'
                 });
             }
 
@@ -201,7 +201,7 @@ module.exports = function() {
 
                 res.json({
                     status: 'success',
-                    message: 'Token revoked.'
+                    message: 'Token revogada.'
                 });
             });
         },
@@ -213,7 +213,7 @@ module.exports = function() {
 
                 return res.status(403).json({
                     status: 'error',
-                    message: 'Permission denied'
+                    message: 'Permissão negada'
                 });
             }
 
@@ -225,7 +225,7 @@ module.exports = function() {
             if (fields.password !== passwordConfirm) {
                 return res.status(400).json({
                     status: 'error',
-                    message: 'Password not confirmed'
+                    message: 'Senha não confirmada'
                 });
             }
 
@@ -241,10 +241,10 @@ module.exports = function() {
 
             core.account.create('local', data, function(err) {
                 if (err) {
-                    var message = 'Sorry, we could not process your request';
+                    var message = 'Desculpe, não pudemos processar seu pedido';
                     // User already exists
                     if (err.code === 11000) {
-                        message = 'Email has already been taken';
+                        message = 'Email já foi cadastrado';
                     }
                     // Invalid username
                     if (err.errors) {
@@ -264,8 +264,8 @@ module.exports = function() {
 
                 res.status(201).json({
                     status: 'success',
-                    message: 'You\'ve been registered, ' +
-                             'please try logging in now!'
+                    message: 'Você\ foi cadastrado, ' +
+                             'por favor tente entrar agora!'
                 });
             });
         },
@@ -274,7 +274,7 @@ module.exports = function() {
                 if (err) {
                     return res.status(400).json({
                         status: 'error',
-                        message: 'There were problems logging you in.',
+                        message: 'Houveram problemas logando você.',
                         errors: err
                     });
                 }
@@ -282,7 +282,7 @@ module.exports = function() {
                 if (!user && info && info.locked) {
                     return res.status(403).json({
                         status: 'error',
-                        message: info.message || 'Account is locked.'
+                        message: info.message || 'Conta está trancada.'
                     });
                 }
 
@@ -290,7 +290,7 @@ module.exports = function() {
                     return res.status(401).json({
                         status: 'error',
                         message: info && info.message ||
-                                 'Incorrect login credentials.'
+                                 'Credenciais de login incorretas.'
                     });
                 }
 
@@ -298,7 +298,7 @@ module.exports = function() {
                     if (err) {
                         return res.status(400).json({
                             status: 'error',
-                            message: 'There were problems logging you in.',
+                            message: 'Houveram problemas logando você.',
                             errors: err
                         });
                     }
@@ -307,14 +307,14 @@ module.exports = function() {
                         if (err) {
                             return res.status(400).json({
                                 status: 'error',
-                                message: 'There were problems logging you in.',
+                                message: 'Houveram problemas logando você.',
                                 errors: err
                             });
                         }
                         req.session.passport = temp;
                         res.json({
                             status: 'success',
-                            message: 'Logging you in...'
+                            message: 'Entrando...'
                         });
                     });
                 });

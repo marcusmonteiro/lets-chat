@@ -70,8 +70,8 @@
         var callback = data.callback;
         this.socket.emit('rooms:create', room, function(room) {
             if (room && room.errors) {
-                swal("Unable to create room",
-                     "Room slugs can only contain lower case letters, numbers or underscores!",
+                swal("Não foi possível criar a sala",
+                     "Slugs de sala podem conter apenas letras minúsculas, números ou underscores!",
                      "error");
             } else if (room && room.id) {
                 that.addRoom(room);
@@ -141,8 +141,8 @@
     Client.prototype.archiveRoom = function(options) {
         this.socket.emit('rooms:archive', options, function(data) {
             if (data !== 'No Content') {
-                swal('Unable to Archive!',
-                     'Unable to archive this room!',
+                swal('Não foi possível arquivar!',
+                     'Não foi possível arquivar esta sala!',
                      'error');
             }
         });

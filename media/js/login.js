@@ -18,7 +18,7 @@
             switch(res.status) {
                 case 200:
                 case 201:
-                    swal('Success', res.responseJSON.message, 'success');
+                    swal('Sucesso', res.responseJSON.message, 'success');
                     $form.hasClass('lcb-login-box-login') && $('.sweet-alert').each(function() {
                         $(this).find('.confirm').hide();
                         $(this).find('p').css('margin-bottom', '20px');
@@ -39,18 +39,18 @@
                          'error');
                     break;
                 case 401:
-                    swal('Woops.',
-                         'Your username or password is not correct',
+                    swal('Woops',
+                         'Seu nome de usuário ou senha não estão corretos',
                          'warning');
                     break;
                 case 403:
-                    swal('Woops.',
-                         'Your account is locked',
+                    swal('Woops',
+                         'Sua conta está trancada',
                          'warning');
                     break;
                 default:
-                    swal('Woops.',
-                         'A server error has occured',
+                    swal('Woops',
+                         'Ocorreu um erro no servidor',
                          'error');
                     break;
             }

@@ -28,7 +28,7 @@ function FileManager(options) {
 
 FileManager.prototype.create = function(options, cb) {
     if (!enabled) {
-        return cb('Files are disabled.');
+        return cb('Arquivos estão desabilitados.');
     }
 
     var File = mongoose.model('File'),
@@ -39,8 +39,8 @@ FileManager.prototype.create = function(options, cb) {
         settings.allowedTypes &&
         settings.allowedTypes.length &&
         !_.include(settings.allowedTypes, options.file.mimetype)) {
-            return cb('The MIME type ' + options.file.mimetype +
-                      ' is not allowed');
+            return cb('O tipo MIME ' + options.file.mimetype +
+                      ' não é permitido');
     }
 
     Room.findById(options.room, function(err, room) {
@@ -50,13 +50,13 @@ FileManager.prototype.create = function(options, cb) {
             return cb(err);
         }
         if (!room) {
-            return cb('Room does not exist.');
+            return cb('Sala não existente.');
         }
         if (room.archived) {
-            return cb('Room is archived.');
+            return cb('Sala está arquivada.');
         }
         if (!room.isAuthorized(options.owner)) {
-            return cb('Not authorized.');
+            return cb('Não autorizado.');
         }
 
         new File({

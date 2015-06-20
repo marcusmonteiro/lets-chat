@@ -23,13 +23,13 @@ MessageManager.prototype.create = function(options, cb) {
             return cb(err);
         }
         if (!room) {
-            return cb('Room does not exist.');
+            return cb('Sala não existente.');
         }
         if (room.archived) {
-            return cb('Room is archived.');
+            return cb('Sala está arquivada.');
         }
         if (!room.isAuthorized(options.owner)) {
-            return cb('Not authorized.');
+            return cb('Não autorizado.');
         }
 
         Message.create(options, function(err, message) {
